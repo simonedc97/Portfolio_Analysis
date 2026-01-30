@@ -102,22 +102,13 @@ with tab_corr:
         st.subheader("Controls")
 
         # selezione sheet
-        sheet_options = ["All"] + corr_sheets
-        
         selected_sheet = st.selectbox(
             "Select Portfolio",
-            sheet_options,
-            format_func=lambda x: "All Portfolios" if x == "All" else pretty_name(x)
+            corr_sheets,
+            format_func=pretty_name
         )
-        
-        # Carica dati
-        if selected_sheet == "All":
-            # concatena tutti i fogli
-            corr_list = [load_corr_data("corr_ptf.xlsx", s) for s in corr_sheets]
-            # concatena sulle colonne, assicurandosi che i nomi siano unici
-            corr = pd.concat(corr_list, axis=1)
-        else:
-            corr = load_corr_data("corr_ptf.xlsx", selected_sheet)
+ 
+        corr = load_corr_data("corr_ptf.xlsx", selected_sheet)
 
         # selezione date
         start, end = st.date_input(
