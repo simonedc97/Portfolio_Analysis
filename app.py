@@ -102,12 +102,16 @@ with tab_corr:
         st.subheader("Controls")
 
         # selezione sheet
+        # aggiungi l'opzione "All" in cima alla lista
+        sheet_options = ["All"] + corr_sheets
+        
+        # selezione sheet
         selected_sheet = st.selectbox(
             "Select Portfolio",
-            corr_sheets,
-            format_func=pretty_name
+            sheet_options,
+            format_func=lambda x: "All Portfolios" if x == "All" else pretty_name(x)
         )
-
+ 
         corr = load_corr_data("corr_ptf.xlsx", selected_sheet)
 
         # selezione date
