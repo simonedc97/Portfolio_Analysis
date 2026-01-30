@@ -14,7 +14,7 @@ st.set_page_config(layout="wide")
 # Tabs
 # ==================================================
 tab_corr, tab_stress, tab_legenda = st.tabs(
-    ["Correlation", "Stress Test", "Legend"]
+    ["Correlation ex-Ante", "Stress Test", "Legend"]
 )
 
 # ==================================================
@@ -94,7 +94,7 @@ stress_bystrat = load_stress_bystrat("stress_test_bystrat.xlsx")
 # TAB — CORRELATION
 # ==================================================
 with tab_corr:
-    st.title("Correlation Dashboard")
+    st.title("Correlation ex-Ante Dashboard")
 
     col_ctrl, col_plot = st.columns([0.7, 4.3])
 
