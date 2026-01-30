@@ -119,9 +119,6 @@ with tab_corr:
         else:
             corr = load_corr_data("corr_ptf.xlsx", selected_sheet)
 
- 
-        corr = load_corr_data("corr_ptf.xlsx", selected_sheet)
-
         # selezione date
         start, end = st.date_input(
             "Date range",
