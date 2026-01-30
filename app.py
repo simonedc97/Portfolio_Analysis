@@ -136,7 +136,15 @@ with tab_corr:
                 name=pretty_name(c),
                 line=dict(color=palette[i % len(palette)])
             ))
-        fig.update_layout(height=600, template="plotly_white", yaxis_title="Correlation (%)")
+        fig.update_layout(
+            height=600,
+            template="plotly_white",
+            yaxis_title="Correlation",
+            yaxis=dict(
+                ticksuffix="%",  # aggiunge % dopo il numero
+                tickformat=".2f"  # opzionale: due decimali
+            )
+        )
         st.plotly_chart(fig, use_container_width=True)
 
         # Download Excel
