@@ -191,7 +191,7 @@ with tab_corr:
 # TAB — STRESS TEST
 # ==================================================
 with tab_stress:
-    st.title("Dynamic Asset Allocation vs Funds")
+    st.title("Stress Test Dashboard")
 
     col_ctrl, col_plot = st.columns([0.7, 4.3])
 
