@@ -102,7 +102,12 @@ with tab_corr:
         st.subheader("Controls")
 
         # selezione sheet
-        selected_sheet = st.selectbox("Select Portfolio", corr_sheets)
+        selected_sheet = st.selectbox(
+            "Select Portfolio",
+            corr_sheets,
+            format_func=pretty_name
+        )
+
         corr = load_corr_data("corr_ptf.xlsx", selected_sheet)
 
         # selezione date
