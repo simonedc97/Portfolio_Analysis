@@ -141,8 +141,7 @@ with tab_corr:
             template="plotly_white",
             yaxis_title="Correlation",
             yaxis=dict(
-                ticksuffix="%",  # aggiunge % dopo il numero
-                tickformat=".2f"  # opzionale: due decimali
+                ticksuffix="%"  
             )
         )
         st.plotly_chart(fig, use_container_width=True)
