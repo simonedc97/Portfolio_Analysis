@@ -102,15 +102,23 @@ with tab_corr:
         st.subheader("Controls")
 
         # selezione sheet
-        # aggiungi l'opzione "All" in cima alla lista
         sheet_options = ["All"] + corr_sheets
         
-        # selezione sheet
         selected_sheet = st.selectbox(
             "Select Portfolio",
             sheet_options,
             format_func=lambda x: "All Portfolios" if x == "All" else pretty_name(x)
         )
+        
+        # Carica dati
+        if selected_sheet == "All":
+            # concatena tutti i fogli
+            corr_list = [load_corr_data("corr_ptf.xlsx", s) for s in corr_sheets]
+            # concatena sulle colonne, assicurandosi che i nomi siano unici
+            corr = pd.concat(corr_list, axis=1)
+        else:
+            corr = load_corr_data("corr_ptf.xlsx", selected_sheet)
+
  
         corr = load_corr_data("corr_ptf.xlsx", selected_sheet)
 
