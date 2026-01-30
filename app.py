@@ -126,7 +126,7 @@ with tab_corr:
         )
 
     with col_plot:
-        st.subheader(f"Correlation Time Series - {pretty_name(selected_sheet)}")
+        st.subheader(f"Correlation ex-Ante Time Series - {pretty_name(selected_sheet)}")
         fig = go.Figure()
         palette = qualitative.Plotly
         for i, c in enumerate(selected):
@@ -156,7 +156,7 @@ with tab_corr:
         )
 
         # Radar chart
-        st.subheader(f"Correlation Radar - {pretty_name(selected_sheet)}")
+        st.subheader(f"Correlation Radar ex-Ante - {pretty_name(selected_sheet)}")
         snapshot_date = df.index.max()
         snapshot = df.loc[snapshot_date, selected]
         mean_corr = df[selected].mean()
