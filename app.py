@@ -126,7 +126,7 @@ with tab_corr:
         )
 
     with col_plot:
-        st.subheader("f"Correlation Time Series - {pretty_name(selected_sheet)}"")
+        st.subheader(f"Correlation Time Series - {pretty_name(selected_sheet)}")
         fig = go.Figure()
         palette = qualitative.Plotly
         for i, c in enumerate(selected):
@@ -156,7 +156,7 @@ with tab_corr:
         )
 
         # Radar chart
-        st.subheader("f"Correlation Radar - {pretty_name(selected_sheet)}"")
+        st.subheader(f"Correlation Radar - {pretty_name(selected_sheet)}")
         snapshot_date = df.index.max()
         snapshot = df.loc[snapshot_date, selected]
         mean_corr = df[selected].mean()
@@ -182,7 +182,7 @@ with tab_corr:
         st.plotly_chart(fig_radar, use_container_width=True)
 
         # Summary Statistics
-        st.subheader("f"Summary Statistics - {pretty_name(selected_sheet)}"")
+        st.subheader(f"Summary Statistics - {pretty_name(selected_sheet)}")
         stats_df = pd.DataFrame(index=selected)
         stats_df.insert(0, "Name", [pretty_name(s) for s in selected])
         stats_df["Mean (%)"] = df[selected].mean() * 100
