@@ -319,7 +319,12 @@ with tab_stress:
                 (stress_bystrat["ScenarioName"] == clicked_scenario) &
                 (stress_bystrat["Name"] != "Total")  # esclude la riga Total
             ]
-        
+            df_detail = df_detail.copy()
+
+            df_detail["StressPnL"] = (
+                pd.to_numeric(df_detail["StressPnL"], errors="coerce")
+                .fillna(0.0)
+            )
             if not df_detail.empty:
                 # --------------------
                 # Prepara colori dinamici
